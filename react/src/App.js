@@ -5,6 +5,9 @@ import Home from "./component/Home";
 import Login from "./component/Login";
 import Register from "./component/Register";
 import Todo from "./component/Todos";
+import Admin from "./component/Admin";
+import PrivateRoute from "./hoc/PrivateRoute";
+import UnPrivatRoute from "./hoc/UnPrivatRoute";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   const { user, setUser, isAuthenticated, setIsAuthenticated } = useContext(
@@ -15,9 +18,14 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/todos" component={Todo} />
+        <UnPrivatRoute exact path="/login" component={Login} />
+        <UnPrivatRoute exact path="/register" component={Register} />
+        <PrivateRoute
+          path="/todos"
+          roles={["user", "admin"]}
+          component={Todo}
+        />
+        <PrivateRoute path="/admin" roles={["admin"]} component={Admin} />
       </Switch>
     </Router>
   );
