@@ -38,7 +38,9 @@ server.use(express.json());
 ! Register Routes Here
 */
 const userRouter = require("./routes/user.route");
+const validateRouter = require("./routes/validate.route");
 server.use("/user", userRouter);
+server.use("/validate", validateRouter);
 //################################################################################################//
 //################################################################################################//
 //################################################################################################//
