@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 
@@ -25,6 +26,14 @@ const server = express();
 server.use(cookieParser());
 server.use(cors());
 server.use(express.json());
+
+//
+server.use(express.static(path.join(__dirname, "build")));
+
+server.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+//
 // server.use(bodyParser.urlencoded({ extended: false }));
 
 //Page not found
