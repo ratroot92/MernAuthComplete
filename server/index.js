@@ -65,8 +65,8 @@ const userModel = require("./models/user.model");
 ! Server Startup Settings
 */
 
-const PORT = process.env.PORT || "8080";
-server.listen(8080, (err) => {
+const PORT = process.env.APP_SERVER_PORT || "5000";
+server.listen(5000, (err) => {
   if (!err) {
     console.log(`NODE SERVER LISTENING ON PORT ${PORT}`);
   }
