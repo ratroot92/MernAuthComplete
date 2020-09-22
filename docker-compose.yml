@@ -1,0 +1,29 @@
+version: "3"
+services:
+    react:
+      build: ./react
+      expose:
+        - 80
+      ports:
+        - '80:80'
+      stdin_open: true
+      depends_on:
+        - server
+    server:
+      build: ./server
+      expose:
+        - 8080
+      ports:
+        - '8080:8080'
+          
+    # server:
+    #   build: ./server
+    #   ports:
+    #     - '8080:8080'
+    #   depends_on:
+    #     - mongo
+    mongo:
+      image: mongo
+      ports:
+        - '27017:27017'
+  

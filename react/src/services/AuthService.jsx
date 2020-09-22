@@ -56,7 +56,7 @@ export default {
 ! call this function with context API
 */
   isAuthenticated: () => {
-    return fetch("/user/authenticated")
+    return fetch("http://localhost:8080/user/authenticated")
       .then((res) => {
         console.log(
           " %c *** isAuthenticated[/user/authenticated][GET] *** ",
