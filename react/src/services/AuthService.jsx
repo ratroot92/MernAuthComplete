@@ -8,7 +8,7 @@ export default {
     let username = user["username"][0];
     let password = user["password"][0];
 
-    return fetch(process.env.DEVELOPMENT_SERVER_ADDRESS+"/user/login", {
+    return fetch(process.env.PRODUCTION_SERVER_ADDRESS+"/user/login", {
       method: "post",
       body: JSON.stringify({
         username: username,
@@ -31,7 +31,7 @@ export default {
       " %c *** register[/user/register][POST] *** ",
       "font-size: 12px; font-weight: bold;color:green"
     );
-    return fetch(process.env.DEVELOPMENT_SERVER_ADDRESS+"/user/register", {
+    return fetch(process.env.PRODUCTION_SERVER_ADDRESS+"/user/register", {
       method: "post",
       body: JSON.stringify(user),
       headers: {
@@ -47,7 +47,7 @@ export default {
       " %c *** logout[/user/login][POST] *** ",
       "font-size: 12px; font-weight: bold;color:green"
     );
-    return fetch(process.env.DEVELOPMENT_SERVER_ADDRESS+"/user/logout")
+    return fetch(process.env.PRODUCTION_SERVER_ADDRESS+"/user/logout")
       .then((res) => res.json())
       .then((data) => data);
   },
@@ -56,7 +56,7 @@ export default {
 ! call this function with context API
 */
   isAuthenticated: () => {
-    return fetch(process.env.DEVELOPMENT_SERVER_ADDRESS+"user/authenticated")
+    return fetch(process.env.PRODUCTION_SERVER_ADDRESS+"user/authenticated")
       .then((res) => {
         console.log(
           " %c *** isAuthenticated[/user/authenticated][GET] *** ",
