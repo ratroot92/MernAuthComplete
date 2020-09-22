@@ -1,6 +1,6 @@
 export default {
     validateEmail: (email) => {  
-      return fetch("/validate/email", {
+      return fetch(process.env.DEVELOPMENT_SERVER_ADDRESS+"/validate/email", {
         method: "post",
         body: JSON.stringify({email:email}),
         headers: {

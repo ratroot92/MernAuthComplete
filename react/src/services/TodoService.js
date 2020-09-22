@@ -1,6 +1,6 @@
 export default {
   getTodos: () => {
-    return fetch("user/todos").then((res) => {
+    return fetch(process.env.DEVELOPMENT_SERVER_ADDRESS+"user/todos").then((res) => {
       if (res.status !== 401) {
         return res.json().then((data) => data);
       } else {
@@ -10,7 +10,7 @@ export default {
   },
 
   postTodo: (todo) => {
-    return fetch("user/todo", {
+    return fetch(process.env.DEVELOPMENT_SERVER_ADDRESS+"user/todo", {
       method: "post",
       body: JSON.stringify(todo),
       headers: {
