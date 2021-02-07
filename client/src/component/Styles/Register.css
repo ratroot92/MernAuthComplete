@@ -1,0 +1,24 @@
+label{
+    width: 120px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* text-align: left!important; */
+    border: 1px solid black;
+    font-size: 10px;;
+}
+/* .custom-input-register{
+    
+    height: 25px!important;
+    border-radius: 0px;
+    ;
+} */
+.custom-submit-btn{
+    border-radius: 0px!important;
+}
+.container-register-form{
+    height: 1000px;
+    border: 1px solid black;
+}
